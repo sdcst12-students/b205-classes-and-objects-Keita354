@@ -12,15 +12,25 @@ class Calc:
     principal = 0
     rate = 0
     nPeriods = 0
+    time = 0
 
-    def __init__(self):
+
+    def __init__(self, P=0,r=0, n=0):
         #more input parameters needed
+        self.principal = P
+        self.rate = r
+        self.nPeriods = n
+        
+
         return
 
     def interest(self,t):
+        self.time = t
+    
         return 
     
     def amount(self,t):
+        self.time = t
         return
 
 a = Calc(P=1000,r=4,n=2)
