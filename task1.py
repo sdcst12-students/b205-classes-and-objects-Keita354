@@ -13,7 +13,7 @@ class rectPrism:
         self.len = l
         self.hig = h
         self.wid = w
-        # note you will need to specify more input parameters
+        
         pass
 
     def volume(self):
@@ -28,7 +28,8 @@ class rectPrism:
         else:
             return 2 * (self.len * self.wid + self.len * self.hig + self.wid * self.hig)
 
-# class instances and assertions below:
+
+
 
 a = rectPrism(l=10,w=2,h=5)
 assert a.volume() == 100

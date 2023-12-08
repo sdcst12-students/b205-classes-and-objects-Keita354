@@ -9,34 +9,26 @@ Extension: accept time given in different measurements, but convert them to year
 
 
 class Calc:
-    principal = 0
-    rate = 0
-    nPeriods = 0
-    time = 0
-
-
-    def __init__(self, P=0,r=0, n=0):
-        #more input parameters needed
+    def __init__(self, P=0, r=0, n=0):
         self.principal = P
-        self.rate = r
+        self.rate = r / 100  
         self.nPeriods = n
-        
 
-        return
+    def interest(self, t):
+        self.Time = t
+        amount = self.principal * (1 + self.rate / self.nPeriods) ** (self.nPeriods * self.Time)
+        interest = amount - self.principal
+        return round(interest, 2)
 
-    def interest(self,t):
-        self.time = t
-    
-        return 
-    
-    def amount(self,t):
-        self.time = t
-        return
+    def amount(self, t):
+        self.Time = t
+        amount = self.principal * (1 + self.rate / self.nPeriods) ** (self.nPeriods * self.Time)
+        return round(amount, 2)
 
-a = Calc(P=1000,r=4,n=2)
+
+a = Calc(P=1000, r=4, n=2)
 assert a.interest(3) == 126.16
 assert a.amount(5) == 1218.99
 
-b = Calc(P=5000,r=5.25,n=12)
+b = Calc(P=5000, r=5.25, n=12)
 assert b.interest(10) == 3442.62
-
